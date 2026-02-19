@@ -1,2 +1,3 @@
 expression = input("Your equation ")
-result = eval.express
+result = eval(expression)
+print(result)
