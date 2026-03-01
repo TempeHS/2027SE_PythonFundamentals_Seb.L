@@ -1,16 +1,11 @@
-def indexC(char):
-    capitals = []
-    for index, char in enumerate():
-        if char.isupper():
-            capitals.append(index)
-        return capitals
+import re
 
 
-bl = input("speak")
-blah = indexC(bl)
-print(blah)
+user_string = input("Enter a camelCase string: ")
+
+spaced_string = re.sub(r"([a-z])([A-Z])", r"\1 \2", user_string)
+
+result = spaced_string.split()
 
 
-# Actual code result = input("speak")
-# indexed = indexC(result)
-# split
+print(result)
