@@ -1,4 +1,6 @@
-fuel = input("").replace("/", "")
+fuel = input("").replace("/", " ")
 print(fuel)
-fuel.strsplit(numerator, denominator)
-val = numerator / denominator
+numerator, denominator = fuel.split()
+
+val = (int(numerator) / int(denominator)) * 100
+print(f"{val:.0f}%")
