@@ -13,16 +13,24 @@ months = {
     "december": 12,
 }
 while True:
-    date = input()
+    date = input("")
     try:
-        
+        if "/" in date:
+            day, month, year = int(date.split("/", ""))
 
-d1, d2, d3 = date.split("/")
-date.replace("/", "")
+        elif "," in date:
+            monthn, rest = date.split(" ", "")
+            monthn = monthn.lower().strip()
 
+            if months[monthn] not in month:
+                continue
 
-if d2 in months:
-    print(f"{d3}-{date[d2]}-{d1}")
+            day, year = rest.split("")
+            month = months[monthn]
+            day = int(day)
+            year = int(year)
 
-else:
-    print(f"{d3}-{d2}-{d1}")
+            if not (1 <= month <= 12 and 1 <= day <= 31):
+                print(f"{year}-{month}, {day}")
+    except ValueError:
+        continue
