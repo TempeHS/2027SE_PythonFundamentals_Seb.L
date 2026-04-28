@@ -17,8 +17,8 @@ def main():
             # TODO: count only real code lines
             count = 0
             for line in file:
+                count += 1
                 # TODO: ignore blank lines and comment-only lines
-                pass
 
         print(count)
 
