@@ -24,7 +24,7 @@ def minutes_since(birth_date):
     return days_passed * 24 * 60
 
 
-def minutes_words(minutes):  # fixed: accept parameter
+def minutes_words(minutes):
     return p.number_to_words(minutes, andword="").capitalize()
 
 

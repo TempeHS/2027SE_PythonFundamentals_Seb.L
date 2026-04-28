@@ -2,7 +2,7 @@ import random
 
 
 def main():
-    level = get_level()  # Added () to actually run the function
+    level = get_level()
     score = 0
 
     for _ in range(10):
@@ -15,21 +15,18 @@ def main():
                 answer = int(input(f"{x} + {y} = "))
                 if answer == x + y:
                     score += 1
-                    # Note: The task usually doesn't ask for "correct!",
-                    # but it's fine for testing!
+
                     break
                 else:
                     print("EEE")
                     tries += 1
             except ValueError:
-                print("EEE")  # Task says output "EEE" for non-numbers too
+                print("EEE")
                 tries += 1
 
-        # Check if they failed after the while loop finishes
         if tries == 3:
             print(f"{x} + {y} = {x + y}")
 
-    # Final score happens ONCE after the 10-problem loop ends
     print(f"Score: {score}")
 
 

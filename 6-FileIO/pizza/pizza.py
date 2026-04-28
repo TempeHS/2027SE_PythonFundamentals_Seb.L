@@ -1,12 +1,22 @@
 import csv
 from pprint import pprint
+from tabulate import tabulate
+import sys
+
+if len(sys.argv) != 2:
+
 
 rows = []
-for filename in ("sicilian.csv", "regular.csv"):
+filename = sys.argv[1]
+
+if not filename.lower().endswith(".csv"):
+    sys.exit("Not a csv")
+try:
     with open(filename, newline="", encoding="utf-8") as file:
         reader = csv.DictReader(file)
         for row in reader:
             rows.append(row)
+except FileNotFoundError:
+    SystemExit("File doesnt exist")
 
-print(f"Loaded {len(rows)} rows")
-pprint(rows[:3])
+print(tabulate(rows, headers="keys", tablefmt="grid"))
