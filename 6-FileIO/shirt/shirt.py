@@ -26,11 +26,9 @@ def main():
     # 3) Image processing (add this next)
     try:
         with Image.open(infile) as photo, Image.open("shirt.png") as shirt:
-        fitted = ImageOps.fit(photo, shirt)
-        # TODO: resize/crop input to shirt size with ImageOps.fit
-        # TODO: paste shirt on top using mask=shirt
-        # TODO: save to outfile
-        pass
+            fitted = ImageOps.fit(photo, shirt)
+            fitted.paste(shirt, (0, 0), shirt)
+            fitted.save(outfile)
     except FileNotFoundError:
         sys.exit("Input does not exist")
 
